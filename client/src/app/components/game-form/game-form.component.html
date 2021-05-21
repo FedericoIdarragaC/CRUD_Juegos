@@ -1,0 +1,32 @@
+
+    <div class="row">
+        <div class="col-md-4 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" [(ngModel)]="game.title" name="title" placeholder="Tile" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text" [(ngModel)]="game.description" name="description" placeholder="Description" rows="2" class="form-control" ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="url" [(ngModel)]="game.image" name="image" placeholder="Image" class="form-control" >
+                        </div>
+                        <button class="btn btn-success btn-block" (click)="edit ? updateGame() : saveNewGame()">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-body text-center">
+                <img [src]="game.image == '' ? 'https://www.exclusivehomedesign.it/wp-content/uploads/2018/07/noPhoto.png' : game.image">
+                <h3>{{game.id}}. {{game.title == '' ? 'Game title' : game.title}} </h3>
+                <p>{{game.description == '' ? 'Game description' : game.description}}</p>
+                <p>{{game.created_at | date:'yyyy-MM-dd'}}</p>
+            </div>
+        </div>
+    </div>
+    
+   
+
